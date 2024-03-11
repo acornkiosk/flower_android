@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users">
+	<sql id="query">
+			ID
+	        ,PASSWORD
+	        ,USERNAME
+	        ,RANK
+	        ,ROLE
+	        ,TO_CHAR(REGDATE, 'YYYY/MM/DD') AS REGDATE
+	</sql>
+	<sql id="query_insert">
+			ID
+	        ,PASSWORD
+	        ,USERNAME
+	        ,RANK
+	        ,ROLE
+	        ,REGDATE
+	</sql>
+    <select id="getUserList" resultType="userDto" parameterType="int">
+        SELECT
+        	<include refid="query"/> 
+        FROM 
+        	USER_MANAGE
+    	<if test="rank==3002">
+    		where rank=#{rank}
+    	</if>        
+    </select>
+
+    <select id="getUser" parameterType="String" resultType="userDto">
+        SELECT
+            <include refid="query"/>
+        FROM
+            USER_MANAGE
+        WHERE
+            ID = #{id}
+    </select>
+
+    <insert id="insert" parameterType="userDto">
+        INSERT INTO USER_MANAGE
+            (
+               <include refid="query_insert"/>
+            )
+        VALUES
+            (
+                #{id}
+                ,#{password}
+                ,#{userName}
+                ,#{rank}
+                ,'4004'
+                ,TO_DATE(#{regdate}, 'YYYY-MM-DD')
+            )
+    </insert>
+
+    <delete id="delete" parameterType="userDto">
+        DELETE
+        FROM
+            USER_MANAGE
+        WHERE
+            id = #{id}
+    </delete>
+
+    <update id="update" parameterType="userDto">
+        UPDATE 
+        	USER_MANAGE
+        SET
+            RANK = #{rank}
+            ,ROLE = #{role}
+        WHERE
+            id = #{id}
+    </update>
+    
+    <insert id="ownerInsert" parameterType="userDto">
+        INSERT INTO USER_MANAGE
+            (
+               <include refid="query_insert"/>
+            )
+        VALUES
+            (
+                #{id}
+                ,#{password}
+                ,#{userName}
+                ,3002
+                ,'[4001,4002,4003,4004]'
+                ,SYSDATE
+            )
+    </insert>
+    
+    <insert id="superInsert" parameterType="userDto">
+        INSERT INTO USER_MANAGE
+            (
+               <include refid="query_insert"/>
+            )
+        VALUES
+            (
+                #{id}
+                ,#{password}
+                ,#{userName}
+                ,3001
+                ,'4001,4002,4003,4004'
+                ,SYSDATE
+            )
+    </insert>
+    
+        <select id="getOwnerList" resultType="userDto">
+        SELECT
+        	<include refid="query_insert"/> 
+        FROM 
+        	USER_MANAGE
+        where rank=3002
+    </select>
+    
+    <update id="ownerUpdate" parameterType="userDto">
+        UPDATE 
+        	USER_MANAGE
+        SET
+           USERNAME=#{userName}  <if test="newId!=null"> ,id=#{newId}</if>
+        WHERE
+            ID= #{id}
+    </update>
+</mapper>

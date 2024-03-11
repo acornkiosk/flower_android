@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/acorn_android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/acorn_kiosk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/acorn_web" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/boot_09" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flower" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flower2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flower_front/flower" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flower_kiosk/flower_kiosk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jwt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/react/acorn202310_react" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/react/hello" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/react/my_react" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/react/react_basic" vcs="Git" />
+  </component>
+</project>

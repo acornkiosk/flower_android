@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=C\:\\Users\\samsung\\Desktop\\acorn\\flower\\.git;C\:\\Users\\samsung\\Desktop\\acorn\\acorn_web\\.git;C\:\\Users\\samsung\\Desktop\\acorn\\acorn_kiosk\\.git;
+GitRepositoriesView.GitDirectories.relative=flower\\.git;acorn_web\\.git;acorn_kiosk\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1

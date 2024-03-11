@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Users\samsung\Desktop\acorn\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\87866794.index
+\acorn_web\src\main\java
+C:\Users\samsung\Desktop\acorn\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4170144869.index
+\acorn_web\src\main\java
