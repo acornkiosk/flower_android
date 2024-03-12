@@ -4,8 +4,6 @@ import android.util.Log
 import com.flower_android.model.MenuItem
 
 
-class ItemHandler {
-    fun onClickItem(item: MenuItem) {
-        println("$item")
-    }
+interface ItemHandler {
+    fun onClickItem(item: MenuItem)
 }

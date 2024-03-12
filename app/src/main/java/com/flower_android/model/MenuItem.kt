@@ -1,17 +1,21 @@
 package com.flower_android.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MenuListResponse(
-    val list : List<MenuItem>
+    @SerializedName("dto") val dto: MenuItem,
+    @SerializedName("list") val list: List<MenuItem>,
+    @SerializedName("status") val status : String
 )
+
 data class MenuItem(
-    @SerializedName("id") val id : Int,
-    @SerializedName("name") val name : String,
-    @SerializedName("price") val price : Int,
-    @SerializedName("img_name") val imgName : String,
-    @SerializedName("summary") val summary : String,
-    @SerializedName("description") val description : String,
-    @SerializedName("is_sold") val isSold : Boolean,
-    @SerializedName("category_id") val categoryId : Int
+    @SerializedName("id") val id: Int? = 0,
+    @SerializedName("name") val name: String? = "",
+    @SerializedName("price") val price: Int? = 0,
+    @SerializedName("img_name") val imgName: String? = "",
+    @SerializedName("summary") val summary: String? ="",
+    @SerializedName("description") val description: String? = "",
+    @SerializedName("is_sold") val isSold: String? = "false",
+    @SerializedName("category_id") val category_id: Int? = 0
 )

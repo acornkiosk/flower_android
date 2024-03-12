@@ -1,5 +1,6 @@
 package com.flower_android.list
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.flower_android.databinding.ItemMenuBinding
 import com.flower_android.model.MenuItem
