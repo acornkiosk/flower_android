@@ -1,21 +1,21 @@
 package com.flower_android
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.flower_android.databinding.FragmentAllBinding
+import androidx.fragment.app.Fragment
+import com.flower_android.databinding.FragmentBasketBinding
 
-class AllFragment : Fragment() {
-    private var binding: FragmentAllBinding? = null
+class BasketFragment : Fragment() {
+    private var binding: FragmentBasketBinding? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        return FragmentAllBinding.inflate(inflater, container, false).apply {
+    ): View? {
+        return FragmentBasketBinding.inflate(inflater, container, false).apply {
             binding = this
         }.root
     }
