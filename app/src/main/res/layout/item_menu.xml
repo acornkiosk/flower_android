@@ -5,6 +5,13 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="com.flower_android.model.MenuItem" />
+
+        <variable
+            name="handler"
+            type="com.flower_android.list.ItemHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +21,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_corner_10">
+        android:background="@drawable/rounded_corner_10"
+        android:onClick="@{() -> handler.onClickItem(item)}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView"
@@ -31,6 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:text="@{item.summary}"
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +52,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:text="@{item.name}"
             android:textAlignment="center"
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:text="@{item.price}"
             android:textAlignment="center"
             android:textColor="@color/red"
             android:textSize="36sp"

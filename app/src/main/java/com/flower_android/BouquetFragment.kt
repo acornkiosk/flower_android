@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.flower_android.databinding.FragmentBouquetBinding
+import com.flower_android.list.ItemHandler
+import com.flower_android.list.ListAdapter
 
 class BouquetFragment : Fragment() {
     private var binding: FragmentBouquetBinding? = null
 
+    private val adapter by lazy { ListAdapter(ItemHandler()) }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,7 +26,7 @@ class BouquetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.apply {
-
+            recyclerView.adapter = adapter
         }
     }
 
