@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.flower_android.MainActivity" />
+        <activity android:name="com.flower_android.DetailActivity" />
     </application>
 
 </manifest>
