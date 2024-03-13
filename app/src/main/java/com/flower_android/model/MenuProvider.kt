@@ -1,9 +1,6 @@
 package com.flower_android.model
 
-import android.util.Log
 import com.flower_android.RetrofitManager
-import okhttp3.MediaType
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Response
 
@@ -17,8 +14,11 @@ class MenuProvider(private val callback: Callback) {
                     response: Response<MenuListResponse>
                 ) {
                     if (response.isSuccessful) {
+                        val list = mutableListOf<MenuItem>()
                         response.body()?.let {
-                            callback.getMenuList(it.list)
+                            if (response.isSuccessful) {
+                                callback.getMenuList(it.list)
+                            }
                         }
                     }
                 }
@@ -26,7 +26,6 @@ class MenuProvider(private val callback: Callback) {
                 override fun onFailure(call: Call<MenuListResponse>, t: Throwable) {
                     t.printStackTrace()
                 }
-
             })
     }
 

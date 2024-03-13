@@ -1,4 +1,4 @@
-package com.flower_android
+package com.flower_android.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -6,22 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.flower_android.databinding.FragmentAllBinding
+import com.flower_android.databinding.FragmentBouquetBinding
 import com.flower_android.list.ItemHandler
 import com.flower_android.list.MenuAdapter
 import com.flower_android.model.MenuItem
 import com.flower_android.model.MenuProvider
 
-class AllFragment : Fragment(), MenuProvider.Callback {
-    private var binding: FragmentAllBinding? = null
+class BouquetFragment : Fragment(), MenuProvider.Callback {
+    private var binding: FragmentBouquetBinding? = null
 
     private val adapter by lazy { MenuAdapter(Handler()) }
     private val menuProvider = MenuProvider(this)
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return FragmentAllBinding.inflate(inflater, container, false).apply {
+    ): View? {
+        return FragmentBouquetBinding.inflate(inflater, container, false).apply {
             binding = this
         }.root
     }
@@ -36,7 +37,7 @@ class AllFragment : Fragment(), MenuProvider.Callback {
     override fun onResume() {
         super.onResume()
         binding?.apply {
-            menuProvider.getMenu(0)
+            menuProvider.getMenu(1002)
         }
     }
 
@@ -48,6 +49,7 @@ class AllFragment : Fragment(), MenuProvider.Callback {
     override fun getMenuList(list: List<MenuItem>) {
         adapter.submitList(list)
     }
+
     class Handler : ItemHandler {
         override fun onClickItem(item: MenuItem) {
             Log.e("클릭", "$item")

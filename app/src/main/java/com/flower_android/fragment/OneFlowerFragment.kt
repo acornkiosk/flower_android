@@ -1,4 +1,4 @@
-package com.flower_android
+package com.flower_android.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -49,7 +49,6 @@ class OneFlowerFragment : Fragment(), MenuProvider.Callback {
     override fun getMenuList(list: List<MenuItem>) {
         adapter.submitList(list)
     }
-
     class Handler : ItemHandler {
         override fun onClickItem(item: MenuItem) {
             Log.e("클릭", "$item")

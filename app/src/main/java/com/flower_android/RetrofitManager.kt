@@ -24,9 +24,10 @@ object RetrofitManager {
         .create()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://flower.onleave.co.kr:9000/flower/api/")
+        .baseUrl("http://flower.onleave.co.kr:9000/flower/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
+
 
     val menuService: MenuService by lazy { retrofit.create(MenuService::class.java) }
 }

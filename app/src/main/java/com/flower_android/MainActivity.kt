@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.flower_android.databinding.ActivityMainBinding
+import com.flower_android.fragment.AllFragment
+import com.flower_android.fragment.BasketFragment
+import com.flower_android.fragment.BouquetFragment
+import com.flower_android.fragment.OneFlowerFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
