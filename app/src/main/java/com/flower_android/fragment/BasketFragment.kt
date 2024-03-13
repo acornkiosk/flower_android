@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.flower_android.databinding.FragmentBasketBinding
 import com.flower_android.list.ItemHandler
@@ -43,6 +44,7 @@ class BasketFragment : Fragment(), MenuProvider.Callback {
 
     override fun getMenuList(list: List<MenuItem>) {
         adapter.submitList(list)
+        binding?.emptyTextView?.isVisible = list.isEmpty()
     }
 
     override fun onDestroyView() {

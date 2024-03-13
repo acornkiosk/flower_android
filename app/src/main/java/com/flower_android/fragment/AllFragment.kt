@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.flower_android.databinding.FragmentAllBinding
 import com.flower_android.list.ItemHandler
@@ -17,7 +18,6 @@ class AllFragment : Fragment(), MenuProvider.Callback {
 
     private val adapter by lazy { MenuAdapter(Handler()) }
     private val menuProvider = MenuProvider(this)
-    private val menuList = mutableListOf<MenuItem>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,8 +47,8 @@ class AllFragment : Fragment(), MenuProvider.Callback {
     }
 
     override fun getMenuList(list: List<MenuItem>) {
-        menuList.addAll(list)
         adapter.submitList(list)
+        binding?.emptyTextView?.isVisible = list.isEmpty()
     }
 
     class Handler : ItemHandler {
