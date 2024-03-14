@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="view"
+            type="com.flower_android.DetailActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,12 +75,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:text="1"
             android:textAlignment="center"
             android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="@id/priceTextView"
             app:layout_constraintStart_toEndOf="@id/minusButton"
-            app:layout_constraintTop_toTopOf="@id/priceTextView"
-            tools:text="1" />
+            app:layout_constraintTop_toTopOf="@id/priceTextView" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/plusButton"
@@ -100,7 +103,7 @@
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/plusButton"
-            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+            app:layout_constraintTop_toBottomOf="@id/menuImageView"
             tools:text="64900원" />
 
         <ScrollView
@@ -122,6 +125,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/categoryTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"

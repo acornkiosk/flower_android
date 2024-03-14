@@ -18,6 +18,5 @@ data class MenuItem(
     @SerializedName("summary") val summary: String? ="",
     @SerializedName("description") val description: String? = "",
     @SerializedName("is_sold") val isSold: String? = "false",
-    @SerializedName("category_id") val category_id: Int? = 0,
-    var bitmap : Bitmap? = null
-)
+    @SerializedName("category_id") val category_id: Int? = 0
+) : Serializable

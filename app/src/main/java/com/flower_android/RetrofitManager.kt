@@ -1,6 +1,7 @@
 package com.flower_android
 
 import com.flower_android.service.MenuService
+import com.flower_android.service.OptionService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -30,4 +31,6 @@ object RetrofitManager {
 
 
     val menuService: MenuService by lazy { retrofit.create(MenuService::class.java) }
+
+    val optionService: OptionService by lazy { retrofit.create(OptionService::class.java) }
 }

@@ -1,5 +1,6 @@
 package com.flower_android.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.flower_android.DetailActivity
 import com.flower_android.databinding.FragmentAllBinding
 import com.flower_android.list.ItemHandler
 import com.flower_android.list.MenuAdapter
@@ -51,9 +53,12 @@ class AllFragment : Fragment(), MenuProvider.Callback {
         binding?.emptyTextView?.isVisible = list.isEmpty()
     }
 
-    class Handler : ItemHandler {
+    inner class Handler : ItemHandler {
         override fun onClickItem(item: MenuItem) {
             Log.e("클릭", "$item")
+            val intent = Intent(requireActivity(), DetailActivity::class.java)
+            intent.putExtra("item",item)
+            requireActivity().startActivity(intent)
         }
     }
 }
