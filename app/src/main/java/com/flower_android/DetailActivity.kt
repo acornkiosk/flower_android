@@ -18,6 +18,7 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
     private val wrapAdapter by lazy { OptionAdapter() }
     private val optionProvider = OptionProvider(this)
     private val imageProvider = ImageProvider(this)
+    private var count = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,7 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
         setContentView(binding.root)
         binding.view = this
         val item = intent.getSerializableExtra("item") as MenuItem
+        binding.item = item
         optionProvider.getOption(item.category_id ?: 0, "category")
         optionProvider.getOption(2012, "etc")
         optionProvider.getOption(2016, "wrap")
@@ -75,6 +77,21 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
                 wrapAdapter.submitList(list)
             }
         }
+    }
 
+    fun onMinus(item: MenuItem) {
+        if(count > 1) {
+            count--
+            binding.countTextView.text = "$count"
+            binding.priceTextView.text = "${item.price!!.times(count)}원"
+        }
+    }
+
+    fun onPlus(item: MenuItem) {
+        if(count < 9) {
+            count++
+            binding.countTextView.text = "$count"
+            binding.priceTextView.text = "${item.price!!.times(count)}원"
+        }
     }
 }
