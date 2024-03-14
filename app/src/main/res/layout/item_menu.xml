@@ -11,7 +11,7 @@
 
         <variable
             name="handler"
-            type="com.flower_android.list.ItemHandler" />
+            type="com.flower_android.list.MenuItemHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

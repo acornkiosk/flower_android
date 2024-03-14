@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.flower_android.databinding.FragmentOneflowerBinding
-import com.flower_android.list.ItemHandler
 import com.flower_android.list.MenuAdapter
+import com.flower_android.list.MenuItemHandler
 import com.flower_android.model.MenuItem
 import com.flower_android.model.MenuProvider
 
@@ -52,7 +52,7 @@ class OneFlowerFragment : Fragment(), MenuProvider.Callback {
         binding?.emptyTextView?.isVisible = list.isEmpty()
     }
 
-    class Handler : ItemHandler {
+    class Handler : MenuItemHandler {
         override fun onClickItem(item: MenuItem) {
             Log.e("클릭", "$item")
         }

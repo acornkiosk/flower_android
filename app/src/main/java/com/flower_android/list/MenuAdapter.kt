@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.flower_android.databinding.ItemMenuBinding
 import com.flower_android.model.MenuItem
 
-class MenuAdapter(private val itemHandler: ItemHandler? = null) :
+class MenuAdapter(private val itemHandler: MenuItemHandler? = null) :
     ListAdapter<MenuItem, MenuViewHolder>(diffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val inflater = LayoutInflater.from(parent.context)

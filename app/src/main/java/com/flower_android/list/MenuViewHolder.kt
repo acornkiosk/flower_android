@@ -9,7 +9,7 @@ import com.flower_android.model.MenuItem
 
 class MenuViewHolder(
     private val binding: ItemMenuBinding,
-    private val itemHandler: ItemHandler? = null
+    private val itemHandler: MenuItemHandler? = null
 ) : RecyclerView.ViewHolder(binding.root), ImageProvider.Callback {
 
     fun bind(item: MenuItem) {

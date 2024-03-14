@@ -1,9 +1,8 @@
 package com.flower_android.list
 
-import android.util.Log
 import com.flower_android.model.MenuItem
 
 
-interface ItemHandler {
+interface MenuItemHandler {
     fun onClickItem(item: MenuItem)
 }

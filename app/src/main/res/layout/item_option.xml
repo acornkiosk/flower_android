@@ -8,6 +8,10 @@
         <variable
             name="item"
             type="com.flower_android.model.CommonItem" />
+
+        <variable
+            name="handler"
+            type="com.flower_android.list.OptionItemHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,6 +57,17 @@
             app:layout_constraintStart_toStartOf="@id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/optionTextView"
             tools:text="10000원" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/checkImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/baseline_check_24"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
