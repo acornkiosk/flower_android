@@ -57,10 +57,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="5"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/summaryTextView"
             app:layout_constraintTop_toBottomOf="@id/summaryTextView"
+            app:layout_constraintBottom_toTopOf="@id/priceTextView"
+            android:layout_marginBottom="8dp"
             tools:text="섬세하고 하얗게 피워낸 꽃잎이 우아하고 깔끔한 느낌으로 순수한 사랑의 마음을 표현해주는듯한 마가렛이예요." />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -191,6 +195,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/pink"
             android:text="닫기"
+            android:onClick="@{() -> view.onClose()}"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/orderButton"
@@ -205,6 +210,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/purple"
             android:text="장바구니 추가"
+            android:onClick="@{() -> view.addOrder()}"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

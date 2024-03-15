@@ -1,7 +1,9 @@
 package com.flower_android
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.flower_android.databinding.ActivityDetailBinding
 import com.flower_android.list.option.OptionAdapter
@@ -10,6 +12,9 @@ import com.flower_android.model.CommonItem
 import com.flower_android.model.ImageProvider
 import com.flower_android.model.MenuItem
 import com.flower_android.model.OptionProvider
+import com.flower_android.model.OrderItem
+import com.flower_android.util.OrderId
+import com.flower_android.util.PreferenceUtil
 
 class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvider.Callback {
     private lateinit var binding: ActivityDetailBinding
@@ -20,6 +25,7 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
     private val optionProvider = OptionProvider(this)
     private val imageProvider = ImageProvider(this)
     private var count = 1
+    private var order = OrderItem()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +33,7 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
         setContentView(binding.root)
         binding.view = this
         val item = intent.getSerializableExtra("item") as MenuItem
+        order.menu_name = item.name
         binding.item = item
         categoryAdapter = OptionAdapter(Handler(), binding.categoryRecyclerView)
         etcAdapter = OptionAdapter(Handler(), binding.etcRecyclerView)
@@ -88,6 +95,7 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
             count--
             binding.countTextView.text = "$count"
             binding.priceTextView.text = "${item.price!!.times(count)}원"
+            order.menu_count = count
         }
     }
 
@@ -96,12 +104,57 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
             count++
             binding.countTextView.text = "$count"
             binding.priceTextView.text = "${item.price!!.times(count)}원"
+            order.menu_count = count
         }
     }
 
-    inner class Handler : OptionItemHandler {
-        override fun onClickItem(item: CommonItem, position: Int) {
+    fun onClose() {
+        finish()
+    }
 
+    fun addOrder() {
+        val intent = Intent(this,MainActivity::class.java)
+        PreferenceUtil(this).setOrder(OrderId.id.toString(),order)
+        OrderId.increase()
+        startActivity(intent)
+        finish()
+    }
+
+    inner class Handler : OptionItemHandler {
+        override fun onClickItem(item: CommonItem, checked: Boolean) {
+            if (item.p_code_id == 2012) {
+                if (checked) {
+                    order.options += "${item.code_id}, "
+                    order.optionsText += "${item.code_name}, "
+                } else {
+                    order.options = order.options?.replace("${item.code_id}, ", "")
+                    order.optionsText = order.optionsText?.replace("${item.code_name}, ", "")
+                }
+            } else if (item.p_code_id == 1001) {
+                order.options = order.options?.replace("2001, ", "")?.replace("2002, ", "")
+                    ?.replace("2003, ", "") + "${item.code_id}, "
+                order.optionsText =
+                    order.optionsText?.replace("종이포장지, ", "")?.replace("반투명포장지, ", "")
+                        ?.replace("유산지포장지, ", "") + "${item.code_name}, "
+            }else if(item.p_code_id == 1002){
+                order.options = order.options?.replace("2005, ", "")?.replace("2006, ", "")
+                    ?.replace("2007, ", "") + "${item.code_id}, "
+                order.optionsText =
+                    order.optionsText?.replace("종이포장지, ", "")?.replace("반투명포장지, ", "")
+                        ?.replace("유산지포장지, ", "") + "${item.code_name}, "
+            }else if(item.p_code_id == 1003) {
+                order.options = order.options?.replace("2009, ", "")?.replace("2010, ", "")
+                    ?.replace("2011, ", "") + "${item.code_id}, "
+                order.optionsText =
+                    order.optionsText?.replace("기본바구니, ", "")?.replace("중간바구니, ", "")
+                        ?.replace("큰바구니, ", "") + "${item.code_name}, "
+            }else if(item.p_code_id == 2016) {
+                order.options = order.options?.replace("2017, ", "")?.replace("2018, ", "")
+                    ?.replace("2019, ", "") + "${item.code_id}, "
+                order.optionsText =
+                    order.optionsText?.replace("기본화병, ", "")?.replace("스트라이프 화병, ", "")
+                        ?.replace("없음, ", "") + "${item.code_name}, "
+            }
         }
 
     }

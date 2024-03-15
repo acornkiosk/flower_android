@@ -55,7 +55,6 @@ class AllFragment : Fragment(), MenuProvider.Callback {
 
     inner class Handler : MenuItemHandler {
         override fun onClickItem(item: MenuItem) {
-            Log.e("클릭", "$item")
             val intent = Intent(requireActivity(), DetailActivity::class.java)
             intent.putExtra("item", item)
             requireActivity().startActivity(intent)

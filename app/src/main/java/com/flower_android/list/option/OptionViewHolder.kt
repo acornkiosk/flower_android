@@ -14,12 +14,10 @@ class OptionViewHolder(
     fun bind(item: CommonItem, position: Int) {
         binding.item = item
         binding.handler = itemHandler
-        if (item.p_code_id == 2012) {
-            binding.root.setOnClickListener {
+        binding.root.setOnClickListener {
+            if (item.p_code_id == 2012) {
                 binding.checkImageView.isVisible = !binding.checkImageView.isVisible
-            }
-        } else {
-            binding.root.setOnClickListener {
+            } else {
                 for (i in 0 until recyclerView.childCount) {
                     val childView = recyclerView.getChildAt(i)
                     val viewHolder = recyclerView.getChildViewHolder(childView)
@@ -29,8 +27,7 @@ class OptionViewHolder(
                 }
                 binding.checkImageView.isVisible = true
             }
-
+            itemHandler?.onClickItem(item, binding.checkImageView.isVisible)
         }
-
     }
 }

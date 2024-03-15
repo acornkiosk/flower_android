@@ -58,6 +58,8 @@ dependencies {
     //뷰모델과 livedata를 사용
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    //gson
+    implementation("com.google.code.gson:gson:2.8.6")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
