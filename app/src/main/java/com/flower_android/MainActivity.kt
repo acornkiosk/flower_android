@@ -1,5 +1,6 @@
 package com.flower_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -38,5 +39,10 @@ class MainActivity : AppCompatActivity() {
                 "바구니"
             }
         }.attach()
+    }
+
+    fun goCart() {
+        val intent = Intent(this,CartActivity::class.java)
+        startActivity(intent)
     }
 }

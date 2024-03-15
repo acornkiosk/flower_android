@@ -1,4 +1,4 @@
-package com.flower_android.list
+package com.flower_android.list.menu
 
 import com.flower_android.model.MenuItem
 

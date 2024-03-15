@@ -1,4 +1,4 @@
-package com.flower_android.list
+package com.flower_android.list.option
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.flower_android.databinding.ItemOptionBinding
 import com.flower_android.model.CommonItem
 
-class OptionAdapter(private val itemHandler: OptionItemHandler? = null,private val recyclerView: RecyclerView) :
+class OptionAdapter(private val itemHandler: OptionItemHandler? = null, private val recyclerView: RecyclerView) :
     ListAdapter<CommonItem, OptionViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionViewHolder {

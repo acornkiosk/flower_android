@@ -25,6 +25,7 @@
         </activity>
         <activity android:name="com.flower_android.MainActivity" />
         <activity android:name="com.flower_android.DetailActivity" />
+        <activity android:name="com.flower_android.CartActivity" />
     </application>
 
 </manifest>

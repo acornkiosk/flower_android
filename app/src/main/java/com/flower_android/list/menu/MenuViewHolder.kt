@@ -1,7 +1,6 @@
-package com.flower_android.list
+package com.flower_android.list.menu
 
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.flower_android.databinding.ItemMenuBinding
 import com.flower_android.model.ImageProvider

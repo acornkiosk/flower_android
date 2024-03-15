@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.flower_android.databinding.FragmentBouquetBinding
-import com.flower_android.list.MenuAdapter
-import com.flower_android.list.MenuItemHandler
+import com.flower_android.list.menu.MenuAdapter
+import com.flower_android.list.menu.MenuItemHandler
 import com.flower_android.model.MenuItem
 import com.flower_android.model.MenuProvider
 

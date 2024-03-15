@@ -2,11 +2,10 @@ package com.flower_android
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.flower_android.databinding.ActivityDetailBinding
-import com.flower_android.list.OptionAdapter
-import com.flower_android.list.OptionItemHandler
+import com.flower_android.list.option.OptionAdapter
+import com.flower_android.list.option.OptionItemHandler
 import com.flower_android.model.CommonItem
 import com.flower_android.model.ImageProvider
 import com.flower_android.model.MenuItem
