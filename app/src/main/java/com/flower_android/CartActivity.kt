@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.flower_android.databinding.ActivityCartBinding
 import com.flower_android.list.cart.CartAdapter
 import com.flower_android.list.cart.CartItemHandler
@@ -40,6 +41,9 @@ class CartActivity : AppCompatActivity(), OrderProvider.Callback {
         binding.apply {
             recyclerView.adapter = adapter
             adapter.submitList(list)
+            if (list.isEmpty()) {
+                binding.emptyTextView.isVisible = true
+            }
         }
         orderProvider.getOrderId()
     }
@@ -85,6 +89,9 @@ class CartActivity : AppCompatActivity(), OrderProvider.Callback {
 
         override fun delete(item: OrderItem) {
             list.remove(item)
+            if (list.isEmpty()) {
+                binding.emptyTextView.isVisible = true
+            }
             preferenceUtil.deleteOrder(item.id!!)
             adapter.submitList(ArrayList(list))
             adapter.notifyDataSetChanged()

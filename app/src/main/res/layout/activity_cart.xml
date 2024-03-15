@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="view"
             type="com.flower_android.CartActivity" />
@@ -42,6 +43,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="장바구니에 아무것도 없습니다."
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/recyclerView"
+            app:layout_constraintEnd_toEndOf="@id/recyclerView"
+            app:layout_constraintStart_toStartOf="@id/recyclerView"
+            app:layout_constraintTop_toTopOf="@id/recyclerView" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/homeButton"
             android:layout_width="0dp"
@@ -50,8 +62,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@color/purple"
-            android:text="홈으로"
             android:onClick="@{() -> view.goHome()}"
+            android:text="홈으로"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/orderButton"
@@ -65,8 +77,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@color/pink"
-            android:text="주문하기"
             android:onClick="@{() -> view.order()}"
+            android:text="주문하기"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
