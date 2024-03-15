@@ -38,4 +38,14 @@ class PreferenceUtil(context: Context) {
 
         return orderList
     }
+
+    fun refresh() {
+        val editor = preferences.edit()
+        editor.clear()
+        editor.apply()
+    }
+
+    fun deleteOrder(id : Int) {
+        preferences.edit().remove(id.toString()).apply()
+    }
 }

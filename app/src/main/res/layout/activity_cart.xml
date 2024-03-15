@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="view"
+            type="com.flower_android.CartActivity" />
 
     </data>
 
@@ -48,6 +51,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/purple"
             android:text="홈으로"
+            android:onClick="@{() -> view.goHome()}"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/orderButton"
@@ -62,6 +66,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/pink"
             android:text="주문하기"
+            android:onClick="@{() -> view.order()}"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

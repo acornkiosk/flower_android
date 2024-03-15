@@ -3,7 +3,6 @@ package com.flower_android
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.flower_android.databinding.ActivityDetailBinding
 import com.flower_android.list.option.OptionAdapter
@@ -26,14 +25,18 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
     private val imageProvider = ImageProvider(this)
     private var count = 1
     private var order = OrderItem()
+    private lateinit var preferenceUtil: PreferenceUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.view = this
+        preferenceUtil = PreferenceUtil(this)
         val item = intent.getSerializableExtra("item") as MenuItem
         order.menu_name = item.name
+        order.img_name = item.img_name
+        order.menu_price = item.price
         binding.item = item
         categoryAdapter = OptionAdapter(Handler(), binding.categoryRecyclerView)
         etcAdapter = OptionAdapter(Handler(), binding.etcRecyclerView)
@@ -113,8 +116,10 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
     }
 
     fun addOrder() {
-        val intent = Intent(this,MainActivity::class.java)
-        PreferenceUtil(this).setOrder(OrderId.id.toString(),order)
+        val intent = Intent(this, MainActivity::class.java)
+        if (OrderId.id == 1) preferenceUtil.refresh()
+        order.id = OrderId.id
+        preferenceUtil.setOrder(OrderId.id.toString(), order)
         OrderId.increase()
         startActivity(intent)
         finish()
@@ -136,19 +141,19 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
                 order.optionsText =
                     order.optionsText?.replace("종이포장지, ", "")?.replace("반투명포장지, ", "")
                         ?.replace("유산지포장지, ", "") + "${item.code_name}, "
-            }else if(item.p_code_id == 1002){
+            } else if (item.p_code_id == 1002) {
                 order.options = order.options?.replace("2005, ", "")?.replace("2006, ", "")
                     ?.replace("2007, ", "") + "${item.code_id}, "
                 order.optionsText =
                     order.optionsText?.replace("종이포장지, ", "")?.replace("반투명포장지, ", "")
                         ?.replace("유산지포장지, ", "") + "${item.code_name}, "
-            }else if(item.p_code_id == 1003) {
+            } else if (item.p_code_id == 1003) {
                 order.options = order.options?.replace("2009, ", "")?.replace("2010, ", "")
                     ?.replace("2011, ", "") + "${item.code_id}, "
                 order.optionsText =
                     order.optionsText?.replace("기본바구니, ", "")?.replace("중간바구니, ", "")
                         ?.replace("큰바구니, ", "") + "${item.code_name}, "
-            }else if(item.p_code_id == 2016) {
+            } else if (item.p_code_id == 2016) {
                 order.options = order.options?.replace("2017, ", "")?.replace("2018, ", "")
                     ?.replace("2019, ", "") + "${item.code_id}, "
                 order.optionsText =
