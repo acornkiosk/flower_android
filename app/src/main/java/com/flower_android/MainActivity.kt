@@ -1,19 +1,17 @@
 package com.flower_android
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.flower_android.databinding.ActivityMainBinding
 import com.flower_android.fragment.AllFragment
 import com.flower_android.fragment.BasketFragment
 import com.flower_android.fragment.BouquetFragment
 import com.flower_android.fragment.OneFlowerFragment
-import com.flower_android.model.MenuItem
-import com.flower_android.model.OrderItem
-import com.flower_android.util.PreferenceUtil
 import com.google.android.material.tabs.TabLayoutMediator
+import okhttp3.OkHttpClient
+import okhttp3.Request
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         binding.view = this
         initView()
     }
-
     private fun initView() {
 //        val test = PreferenceUtil(this).getOrder("1", "")
         binding.viewPager.adapter = adapter

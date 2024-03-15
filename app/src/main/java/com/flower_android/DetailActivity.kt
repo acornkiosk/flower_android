@@ -37,6 +37,7 @@ class DetailActivity : AppCompatActivity(), ImageProvider.Callback, OptionProvid
         order.menu_name = item.name
         order.img_name = item.img_name
         order.menu_price = item.price
+        order.options = "2019, "
         binding.item = item
         categoryAdapter = OptionAdapter(Handler(), binding.categoryRecyclerView)
         etcAdapter = OptionAdapter(Handler(), binding.etcRecyclerView)

@@ -10,6 +10,7 @@ import com.flower_android.list.cart.CartItemHandler
 import com.flower_android.model.OrderItem
 import com.flower_android.model.OrderProvider
 import com.flower_android.util.PreferenceUtil
+import com.flower_android.util.WebSocket
 
 class CartActivity : AppCompatActivity(), OrderProvider.Callback {
     private lateinit var binding: ActivityCartBinding
@@ -24,9 +25,14 @@ class CartActivity : AppCompatActivity(), OrderProvider.Callback {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.view = this
+        WebSocket.createWs()
         preferenceUtil = PreferenceUtil(this)
         initView()
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        WebSocket.deleteWs()
     }
 
     private fun initView() {
@@ -43,9 +49,12 @@ class CartActivity : AppCompatActivity(), OrderProvider.Callback {
     }
 
     fun order() {
-        list.forEach {
-            orderProvider.order(it)
+        if (list.isNotEmpty()) {
+            list.forEach {
+                orderProvider.order(it)
+            }
         }
+        WebSocket.send()
         Toast.makeText(this, "주문이 접수 되었습니다!", Toast.LENGTH_SHORT).show()
         preferenceUtil.refresh()
         finish()
