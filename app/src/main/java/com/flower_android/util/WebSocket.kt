@@ -25,7 +25,7 @@ object WebSocket {
     
     fun send() {
         val info = """{ "type": "UPDATE_ORDERS" }"""
-        val toast = """{ "type": "UPDATE_ORDERS_TOAST" }"""
+        val toast = """{ "type": "SET_TOAST" }"""
         ws.send(info)
         ws.send(toast)
     }
