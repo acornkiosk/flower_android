@@ -87,3 +87,6 @@
 
 ### 장바구니 페이지
 <img src="https://github.com/acornkiosk/flower_android/assets/94777814/6b25af19-e13a-496a-8e5a-9bf4749d604e" width="200" height=400"/>
+
+### 시연영상
+[YouTube Link](https://youtu.be/hw9iefr5Kxk)
