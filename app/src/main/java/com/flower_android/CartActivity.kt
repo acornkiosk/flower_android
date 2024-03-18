@@ -43,6 +43,7 @@ class CartActivity : AppCompatActivity(), OrderProvider.Callback {
             adapter.submitList(list)
             if (list.isEmpty()) {
                 binding.emptyTextView.isVisible = true
+                binding.orderButton.isEnabled = false
             }
         }
         orderProvider.getOrderId()
