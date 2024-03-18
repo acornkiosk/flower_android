@@ -77,10 +77,13 @@
 ## Contents
 
 ### 웰컴 페이지
-
+<img src="https://github.com/acornkiosk/flower_android/assets/94777814/c58ab6b0-d0e8-4251-88ed-3c43461f011e" width="200" height="400"/>
 
 ### 메인 페이지
+<img src="https://github.com/acornkiosk/flower_android/assets/94777814/92ed11cf-ffcc-41da-b3c7-499d95b5293f" width="200" height="400"/>
 
 ### 메뉴 상세 페이지
+<img src="https://github.com/acornkiosk/flower_android/assets/94777814/917bd584-9964-4875-835b-f8d5663c13d5" width="200" height="400"/>
 
 ### 장바구니 페이지
+<img src="https://github.com/acornkiosk/flower_android/assets/94777814/6b25af19-e13a-496a-8e5a-9bf4749d604e" width="200" height=400"/>
